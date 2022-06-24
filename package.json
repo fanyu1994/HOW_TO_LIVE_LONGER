@@ -7,16 +7,16 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c scripts/rollup.config.js",
-    "example:install": "cd example/main && npm install && cd ../viteapp && npm install && cd ../vue && npm install && cd ../react18 && npm install && cd ../vue3sub && npm install",
-    "example:start": "npm run build && cd example/viteapp && npm run build && cd ../../ && npm-run-all --parallel start:main start:viteapp start:vue start:react18dev start:vue3sub",
-    "example:start-vite-dev": "npm run build && npm-run-all --parallel start:main start:vitedev start:vue start:react18dev start:vue3sub",
-    "start:main": "cd example/main && npm run start",
-    "start:viteapp": "cd example/viteapp && npm run start",
-    "start:vitedev": "cd example/viteapp && npm run dev",
-    "start:react18dev": "cd example/react18 && npm run dev",
-    "start:vue3sub": "cd example/vue3sub && npm run dev",
-    "start:vue": "cd example/vue && npm run start",
-    "vite:test": "npm run build && cd example/viteapp && npm run dev"
+    "example:install": "cd example/main && yarn && cd ../koa && yarn && cd ../viteapp && yarn && cd ../vue && yarn && cd ../react18 && yarn && cd ../vue3sub && yarn",
+    "example:start": "yarn build && cd example/viteapp && yarn build && cd ../../ && npm-run-all --parallel start:*",
+    "example:start-vite-dev": "yarn build && npm-run-all --parallel start:*",
+    "start:main": "cd example/main && yarn start",
+    "start:vitedev": "cd example/viteapp && yarn dev",
+    "start:react18dev": "cd example/react18 && yarn dev",
+    "start:vue3sub": "cd example/vue3sub && yarn dev",
+    "start:vue": "cd example/vue && yarn start",
+    "start:koa": "cd example/koa-server && yarn start",
+    "vite:test": "yarn build && cd example/viteapp && yarn dev"
   },
   "keywords": [
     "qiankun",
@@ -32,7 +32,10 @@
   "author": "markteng",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10"
+    "@types/d3": "^7.4.0",
+    "cheerio": "^1.0.0-rc.10",
+    "d3": "^7.4.4",
+    "tslib": "^2.4.0"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.10",

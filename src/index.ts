@@ -83,11 +83,11 @@ const htmlPlugin: PluginFn = (qiankunName, microOption = {}) => {
             return
           }
           const end = res.end.bind(res)
-          res.end = (...args: any[]) => {
+          res.end = (...args: any[]):any => {
             let [htmlStr, ...rest] = args
             if (typeof htmlStr === 'string') {
               const $ = cheerio.load(htmlStr)
-              module2DynamicImport($, $('script[src=/@vite/client]').get(0))
+              module2DynamicImport($, $('script[src=/@vite/client]').get(0)!)
               htmlStr = $.html()
             }
             end(htmlStr, ...rest)

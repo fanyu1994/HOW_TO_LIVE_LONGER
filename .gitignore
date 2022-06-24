@@ -1,3 +1,4 @@
 node_modules
 dist
 es
+example/**/node_modules

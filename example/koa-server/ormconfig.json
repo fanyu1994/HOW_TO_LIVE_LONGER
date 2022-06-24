@@ -1,0 +1,13 @@
+{
+  "type": "mysql",
+  "host": "114.55.234.157",
+  "port": 3306,
+  "username": "root",
+  "password": "qwe13461838285",
+  "database": "how_to_live_longer",
+  "synchronize": true,
+  "entities": ["./server/entity/*.ts"] ,
+  "cli": {
+    "entitiesDir": "./server/entity"
+  }
+}

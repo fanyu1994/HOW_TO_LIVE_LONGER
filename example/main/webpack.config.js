@@ -1,12 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { name } = require('./package');
-
+const webpack = require("webpack")
+console.log(process.env.NODE_ENV, '三生三世')
 module.exports = {
   entry: './index.js',
   devtool: 'source-map',
   devServer: {
     open: true,
-    port: '7099',
+    port: '8888',
     clientLogLevel: 'warning',
     disableHostCheck: true,
     compress: true,
@@ -49,6 +50,14 @@ module.exports = {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
+      },
+    }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
   ],

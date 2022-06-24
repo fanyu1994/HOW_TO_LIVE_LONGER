@@ -1,7 +1,7 @@
 // import 'zone.js'; // for angular subapp
 import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start, initGlobalState } from 'qiankun';
 import './index.less';
-
+import "./render/app.jsx"
 /**
  * 主应用 **可以使用任意技术栈**
  * 以下分别是 React 和 Vue 的示例，可切换尝试
