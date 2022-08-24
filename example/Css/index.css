@@ -1,0 +1,216 @@
+/* gsap 动画 */
+.gsap-box-1 {
+  width: 300px;
+  height: 300px;
+  background: #ff0000;
+  position: relative;
+}
+
+.gsap-box-1-inner {
+  width: 250px;
+  height: 250px;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gsap-box-2 {
+  width: 100px;
+  height: 100px;
+  background: #6acf26;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 29px;
+}
+.gsap-box-2-span{
+
+}
+
+.gsap-box-3 {
+  width: 100px;
+  height: 100px;
+  background: #807a99;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 数字时钟 */
+.数字时钟 {
+  width: 100%;
+  height: 600px;
+  background-color: #000;
+  position: relative;
+  margin: 10px auto;
+  font-size: 60px;
+}
+
+.数字时钟-title {
+  font: 5rem sans-serif;
+  text-align: center;
+  padding-top: 50px;
+  color: #fff;
+}
+
+.数字时钟-content {
+  content: 'xxx';
+  color: #fff;
+  -webkit-box-reflect: below 20px -webkit-linear-gradient(transparent, transparent 40%, rgba(0, 0, 0, .8));
+}
+
+.数字时钟-content :nth-child(1),
+.数字时钟-content :nth-child(2),
+.数字时钟-content :nth-child(3) {
+  width: 200px;
+  height: 200px;
+  background: rgb(8, 201, 143);
+  text-align: center;
+  line-height: 230px;
+  margin: 0 10px;
+}
+
+/* 文字透明 */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner .ps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-size: 30vw;
+  font-weight: bold;
+  text-align: center;
+  /* line-height: 100vh; */
+  text-transform: uppercase;
+  color: #000;
+  mix-blend-mode: screen;
+}
+
+/* mask遮罩渐变 */
+#app {
+  background: url('./28.jpg') no-repeat 100% 100%;
+  -webkit-mask: linear-gradient(90deg, transparent, rgba(225, 225, 225, 1));
+  width: 100%;
+  height: 360px;
+  border: 1px solid #ccc;
+}
+
+/* box-reflect 水中倒影效果 */
+.img {
+  width: 50%;
+  height: 360px;
+  -webkit-box-reflect: below 0px -webkit-linear-gradient(transparent, transparent 50%, rgba(0, 0, 0, .9));
+}
+
+/* 发光渐变加载 */
+.class {
+  display: flex;
+}
+
+.class1 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: 转圈 1s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.class :nth-child(1) {
+  animation: 转圈 1s linear .2s infinite;
+}
+
+.class :nth-child(2) {
+  animation: 转圈 1s linear .4s infinite;
+}
+
+.class :nth-child(3) {
+  animation: 转圈 1s linear .6s infinite;
+}
+
+.class :last-child {
+  animation: 转圈 1s linear .8s infinite;
+}
+
+.class1::before {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  display: block;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+  z-index: 1000;
+}
+
+.class1::after {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  background: #000;
+  z-index: 1;
+  filter: blur(10px);
+}
+
+@keyframes 转圈 {
+  0% {
+    transform: rotate(0deg);
+    background: linear-gradient(0deg, transparent, transparent 40%, rgb(196, 8, 8));
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    background: linear-gradient(360deg, transparent, transparent 40%, #07f84f);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.分割线 {
+  width: 100%;
+  height: 20px;
+  margin: 10px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #fff;
+  background-image: linear-gradient(0deg, rgb(185, 24, 24) 50%, transparent 50%), linear-gradient(90deg, rgba(250, 194, 10, 0.5) 50%, transparent 50%);
+  background-size: 30px 30px;
+  transform: skewX(35deg)
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

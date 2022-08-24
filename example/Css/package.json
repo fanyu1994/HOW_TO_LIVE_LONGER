@@ -1,0 +1,9 @@
+{
+  "name": "Css",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "gsap": "^3.10.4"
+  }
+}

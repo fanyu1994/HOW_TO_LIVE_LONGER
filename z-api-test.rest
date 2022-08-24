@@ -5,6 +5,15 @@ POST http://127.0.0.1:3456/menu HTTP/1.1
 content-type: application/json
 
 {
+    "title": "中国必胜",
+    "path": "/chian/must/win",
+    "description": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+POST http://127.0.0.1:3456/file/uploadFile HTTP/1.1
+
+{
     "title": "viteapp",
     "path": "/viteapp",
     "description": "Wed, 21 Oct 2015 18:27:50 GMT"

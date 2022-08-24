@@ -2,28 +2,42 @@ import * as d3 from "d3";
 import { useEffect, useMemo, useState } from "react";
 
 export default function Histogram() {
-  const config = {
-    width: document.body.getBoundingClientRect().width,
-    height: 400,
-    margin: {
-      top: 20,
-      right: 20,
-      bottom: 30,
-      left: 50,
-    },
-  };
-  d3.selectAll("svg").remove();
-  const svg = d3
-    .select("#histogram")
-    .append("svg")
-    .attr("width", config.width)
-    .attr("height", config.height);
   const [isSort, setisSort] = useState(3);
   const [data, setData] = useState<any>([]);
   const [len, setlen] = useState<number>(10);
   const colorScheme = d3.interpolateRdBu;
-
+  function change_add() {
+    let a = isSort === 1 ? 2 : isSort === 2 ? 3 : 1;
+    setisSort((isSort) => a);
+    setlen((len) => len + isSort);
+   
+  }
+  function change_reduce() {
+    let a = isSort === 1 ? 2 : isSort === 2 ? 3 : 1;
+    setisSort((isSort) => a);
+    setlen((len) => len - isSort);
+   
+  }
+  useEffect(()=>{
+    draw(len);
+  },[len])
   function draw(len: number = 10) {
+    const config = {
+      width: document.body.getBoundingClientRect().width,
+      height: 400,
+      margin: {
+        top: 20,
+        right: 20,
+        bottom: 30,
+        left: 50,
+      },
+    };
+    d3.selectAll("svg").remove();
+    const svg = d3
+      .select("#histogram")
+      .append("svg")
+      .attr("width", config.width)
+      .attr("height", config.height);
     const list = data
       .map((p: { price: string | number }) => +p.price)
       .slice(0, len) as Array<number>;
@@ -35,7 +49,6 @@ export default function Histogram() {
     } else {
       list;
     }
-
     const xScale = d3
       .scaleBand()
       .domain(list.map((d: any, i: any) => i))
@@ -80,21 +93,15 @@ export default function Histogram() {
   useEffect(() => {
     d3.csv("src/mock/histogram.csv").then((d) => {
       setData(d);
-      console.log(d.length);
-
-      // const interval = setInterval(() => {
-      //   if (d.length <= len) {
-      //     clearInterval(interval);
-      //     return;
-      //   }
-      //   const len_count = len + 1;
-      //   setlen(len_count);
-      // }, 1000);
     });
   }, []);
   return (
     <div>
-      <h1>Histogram -- 直方图</h1>
+      <h1>
+        Histogram -- 直方图
+        <button onClick={change_add}>+++</button>
+        <button onClick={change_reduce}>---</button>
+      </h1>
       <div id="histogram"></div>
     </div>
   );
